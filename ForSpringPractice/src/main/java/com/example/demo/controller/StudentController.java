@@ -46,12 +46,22 @@ StudentService studentService;
 	}
 	
 	@PutMapping(value="/student")
-	public Student updateStudent(@RequestBody StudentPojo studentPojo) {
-	  Student student = studentService.findById(studentPojo.getId());
+	public BaseResponse updateStudent(@RequestBody StudentPojo studentPojo) {
+	  try{
+		  Student student = studentService.findById(studentPojo.getId());
+	  
+	      if(student == null) {
+		      return null;
+	      }
 		
-		student.setName(studentPojo.getName());
-		student.setEmail(studentPojo.getEmail());
-		return studentService.save(student);
+			student.setName(studentPojo.getName());
+			student.setEmail(studentPojo.getEmail());
+			Student st= studentService.save(student);
+			
+			return new BaseResponse(GlobalConstant.SUCCESS, st,GlobalConstant.Message.SUCCESS_MESSAGE);
+	  }catch(Exception e) {
+		  return new BaseResponse(GlobalConstant.FAIL, null,GlobalConstant.Message.FAIL_MESSAGE);
+	  }
 	}
 	
 }
