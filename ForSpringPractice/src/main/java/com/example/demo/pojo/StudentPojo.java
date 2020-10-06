@@ -1,26 +1,28 @@
 package com.example.demo.pojo;
 public class StudentPojo {
 	
-	Long id;
-	String rollNo;
-	String phone;
-	
-	public Long getId() {
+	int id;
+	String name;
+	String email;
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	public String getRollNo() {
-		return rollNo;
+	public String getName() {
+		return name;
 	}
-	public void setRollNo(String rollNo) {
-		this.rollNo = rollNo;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getPhone() {
-		return phone;
+	public String getEmail() {
+		return email;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setEmail(String email) {
+		this.email = email;
 	}
+	
+	
+	
 }

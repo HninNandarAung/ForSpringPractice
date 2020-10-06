@@ -12,27 +12,22 @@ import com.example.demo.repository.StudentRepository;
 public class StudentService {
 	@Autowired
     StudentRepository studentRepository;
-	
-	
+
 	public List<Student> getStudent() {
-		// TODO Auto-generated method stub
 		return studentRepository.findAll();
 	}
+
 	public Student addStudent(Student student) {
-		// TODO Auto-generated method stub
 		return studentRepository.save(student);
 	}
-	
+
+	public Student save(Student student) {
+		return studentRepository.save(student);
+	}
+
 	public Student findById(int id) {
 		return studentRepository.findById(id).orElse(null);
 	}
+
 	
-	public void deleteStudent(int id) {
-		studentRepository.deleteById(id);
-	}
-	
-	public List<Student> searchStudent(String studentName, String studentEmail) {
-		//TODO Auto-generated method stub
-		 return studentRepository.searchEntity(studentName,studentEmail);
-	}
 }
